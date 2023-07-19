@@ -1,6 +1,7 @@
 package com.example.mbank.api.auth;
 
 import com.example.mbank.api.user.UserRole;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class Role {
     private String name;
 
     @OneToMany(mappedBy = "role")
+    @JsonBackReference
     private List<UserRole> userRoles;
 
     @ManyToMany(fetch = FetchType.EAGER)

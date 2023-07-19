@@ -1,8 +1,10 @@
 package com.example.mbank.api.user;
 
 import com.example.mbank.api.auth.Role;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -22,16 +24,18 @@ public class UserRole {
 
 
     @ManyToOne
+   // @JsonBackReference
     private User user;
 
     @ManyToOne
+    @JsonBackReference
     private Role role;
 
 
 
 
 
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime creatAt;
 
     @UpdateTimestamp

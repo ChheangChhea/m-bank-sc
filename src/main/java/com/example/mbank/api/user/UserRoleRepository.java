@@ -1,6 +1,8 @@
 package com.example.mbank.api.user;
 
-public class UserRoleRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRoleRepository extends CrudRepository<UserRole,Integer> {
 
 
 }

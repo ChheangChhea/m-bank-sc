@@ -7,6 +7,7 @@ import com.example.mbank.api.user.User;
 import com.example.mbank.api.user.UserRepository;
 import com.example.mbank.api.auth.Role;
 import com.example.mbank.api.user.UserRole;
+import com.example.mbank.api.user.UserRoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ public class DataInitialization {
     private final UserRepository userRepository;
     private final AuthorityRepository authorityRepository;
     private final RoleRepository roleRepository;
+    private final UserRoleRepository userRoleRepository;
 
     @PostConstruct
     public void init() {
@@ -83,11 +85,6 @@ public class DataInitialization {
                 roleAdmin, roleManager,roleCustomer
         );
         roleRepository.saveAll(roles);
-
-        UserRole userRoleAdmin = UserRole.builder()
-                .role(roleAdmin)
-                .build();
-
         User user = User.builder()
                 .uuid(UUID.randomUUID().toString())
                 .name("Administrator")
@@ -97,8 +94,17 @@ public class DataInitialization {
                 .isVerifyCode(true)
                 .isDelete(false)
                 .isStudent(false)
-                .userRoles(List.of(userRoleAdmin))
+//                .userRoles(List.of(userRoleAdmin))
                 .build();
         userRepository.save(user);
+
+        UserRole userRoleAdmin = UserRole.builder()
+                .user(user)
+                .role(roleAdmin)
+                .build();
+
+        userRoleRepository.save(userRoleAdmin);
+
+
     }
 }
