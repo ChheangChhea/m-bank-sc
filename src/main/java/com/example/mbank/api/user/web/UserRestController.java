@@ -2,10 +2,13 @@ package com.example.mbank.api.user.web;
 
 import com.example.mbank.api.user.User;
 import com.example.mbank.api.user.UserService;
+import com.example.mbank.base.BaseApi;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+//import lombok.var;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,10 +17,23 @@ public class UserRestController {
 
     private final UserService userService;
 
-    @GetMapping
-    Iterable<User>finAll(){
-        return userService.findAll();
-    }
 
+    @GetMapping
+    public BaseApi<?> finAll() {
+
+        var usersDto = userService.findAll();
+
+        return BaseApi.builder()
+                .isSuccess(true)
+                .code(HttpStatus.OK.value())
+                .massage(" Users  have been found")
+                .dateTime(LocalDateTime.now())
+                .payload(usersDto)
+                .build();
+    }
+//    @PostMapping
+//    public  BaseApi<?> creatNew(@RequestBody String password){
+//
+//    }
 
 }

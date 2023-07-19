@@ -8,7 +8,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "roles")
+@Table(name ="roles")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,7 +24,6 @@ public class Role {
     @OneToMany(mappedBy = "role")
     @JsonBackReference
     private List<UserRole> userRoles;
-
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority>authorities;
 }

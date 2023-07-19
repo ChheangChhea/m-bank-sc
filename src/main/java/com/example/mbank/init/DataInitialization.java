@@ -50,8 +50,6 @@ public class DataInitialization {
                 accountRead, accountWrite, accountDelete, accountUpdate,
                 transactionRead, transactionWrite, transactionDelete, transactionUpdate
         );
-
-
         authorityRepository.saveAll(authorities);
 
         Role roleAdmin = Role.builder()
