@@ -1,5 +1,6 @@
 package com.example.mbank.api.user;
 
+import com.example.mbank.api.user.web.CreateUserDto;
 import com.example.mbank.api.user.web.UserDto;
 import org.mapstruct.Mapper;
 
@@ -11,6 +12,6 @@ public interface UserMapper {
 
     Iterable <UserDto> userToUserDto(Iterable<User> users);
 
-//    User createUserToUserDto(User new)
+    User createUserDtoToUser(CreateUserDto createUserDto);
 
 }

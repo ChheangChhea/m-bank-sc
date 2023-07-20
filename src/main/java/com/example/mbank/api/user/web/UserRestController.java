@@ -1,10 +1,10 @@
 package com.example.mbank.api.user.web;
 
-import com.example.mbank.api.user.User;
 import com.example.mbank.api.user.UserService;
 import com.example.mbank.base.BaseApi;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-//import lombok.var;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,9 +31,16 @@ public class UserRestController {
                 .payload(usersDto)
                 .build();
     }
-//    @PostMapping
-//    public  BaseApi<?> creatNew(@RequestBody String password){
-//
-//    }
+    @PostMapping
+    public  BaseApi<?> createNew(@Valid @RequestBody CreateUserDto createUserDto){
+    UserDto newUser = userService.createNew(createUserDto);
+        return BaseApi.builder()
+                .isSuccess(true)
+                .code(HttpStatus.OK.value())
+                .massage(" User  has been created")
+                .dateTime(LocalDateTime.now())
+                .payload(newUser)
+                .build();
+    }
 
 }

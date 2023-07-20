@@ -4,9 +4,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record CreateUserDto(String uuid,
-                            @NotBlank
-                          String name,
+import java.util.List;
+
+public record CreateUserDto(@NotBlank
+                            @Size(min = 6, max = 30)
+                            String name,
 
                             @NotBlank
                             String gender,
@@ -15,9 +17,11 @@ public record CreateUserDto(String uuid,
                             String email,
 
                             @NotBlank
-                            @Size
-                            String password) {
-
+                            @Size(min = 8, max = 25)
+                            String password,
+                            @NotBlank
+                            String phoneNumber,
+                            List<Integer>roleIds) {
 
 
 }

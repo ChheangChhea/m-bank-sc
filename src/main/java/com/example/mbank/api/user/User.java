@@ -29,6 +29,7 @@ public class User {
     private  Boolean isStudent;
     private  Boolean isDelete;
     private  Boolean isVerifyCode;
+    private  Boolean isVerifyField;
 
 
     @OneToMany(mappedBy ="user" )

@@ -10,6 +10,6 @@ public interface UserService {
 
     UserDto createNew(CreateUserDto createUserDto);
 
-
+        UserDto findById(Integer id);
 
 }
