@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
          newUser.setUuid(UUID.randomUUID().toString());
         newUser.setIsStudent(false);
          newUser.setIsDelete(false);
-//         newUser.st
+        newUser.setIsVerified(true);
 
         userRepository.save(newUser);
 

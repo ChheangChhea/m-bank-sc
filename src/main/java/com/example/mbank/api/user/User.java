@@ -13,10 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String uuid;
     private String name;
     private String gender;
@@ -24,12 +24,12 @@ public class User {
     private String password;
     private String phoneNumber;
     private String onSignalId;
-    private String verifyCode;
+    private Boolean isStudent;
     private String studentCardNo;
-    private  Boolean isStudent;
-    private  Boolean isDelete;
+    private String verifyCode;
     private  Boolean isVerifyCode;
-    private  Boolean isVerifyField;
+    private  Boolean isVerified;
+    private  Boolean isDelete;
 
 
     @OneToMany(mappedBy ="user" )
