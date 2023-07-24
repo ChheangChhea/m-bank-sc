@@ -22,7 +22,7 @@ public class Role {
     private String name;
 
     @OneToMany(mappedBy = "role")
-    @JsonBackReference
+//    @JsonBackReference
     private List<UserRole> userRoles;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority>authorities;

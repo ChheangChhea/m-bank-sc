@@ -32,7 +32,8 @@ public class User {
     private  Boolean isDelete;
 
 
-    @OneToMany(mappedBy ="user" )
-    List<UserRole> userRoles;
+    @OneToMany(mappedBy ="user",fetch = FetchType.EAGER)
+
+   private List<UserRole> userRoles;
 
 }
