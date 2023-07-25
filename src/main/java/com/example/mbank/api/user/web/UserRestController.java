@@ -1,6 +1,6 @@
 package com.example.mbank.api.user.web;
 
-import com.example.mbank.api.user.User;
+
 import com.example.mbank.api.user.UserService;
 import com.example.mbank.base.BaseApi;
 import jakarta.validation.Valid;
@@ -33,10 +33,10 @@ public class UserRestController {
                 .build();
     }
 
-    @GetMapping("/{id}")
-    public BaseApi<?> findById(@PathVariable Integer id) {
+    @GetMapping("/{uuid}")
+    public BaseApi<?> findByUuid(@PathVariable String uuid) {
 
-        var userDto = userService.findById(id);
+        var userDto = userService.findByUuid(uuid);
 
         return BaseApi.builder()
                 .isSuccess(true)
@@ -48,16 +48,16 @@ public class UserRestController {
     }
     @PostMapping
     public  BaseApi<?> createNew(@Valid @RequestBody CreateUserDto createUserDto){
-       // UserDto newUserId = userService.createNew(createUserDto);
-        Integer newUserId = userService.createNew(createUserDto);
+
+        UserDto newUser = userService.createNew(createUserDto);
 
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
                 .massage(" User  has been created")
                 .dateTime(LocalDateTime.now())
-//                .payload()
-                .payload(userService.findById(2))
+                .payload(newUser)
+
                 .build();
     }
 

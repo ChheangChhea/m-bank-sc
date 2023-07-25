@@ -32,7 +32,7 @@ public class User {
     private  Boolean isDelete;
 
 
-    @OneToMany(mappedBy ="user",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy ="user",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
 
    private List<UserRole> userRoles;
 

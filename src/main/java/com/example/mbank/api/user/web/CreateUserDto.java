@@ -17,6 +17,9 @@ public record CreateUserDto(@NotBlank
                             @Email
                             String email,
 
+
+//                            Boolean isstudent,
+
                             @NotBlank
                             @Size(min = 8, max = 25)
                             String password,

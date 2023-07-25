@@ -1,8 +1,13 @@
 package com.example.mbank.api.user;
 
-import org.springframework.data.repository.CrudRepository;
+import com.example.mbank.base.BaseJpaRepository;
 
-public interface UserRoleRepository extends CrudRepository<UserRole,Integer> {
+import java.util.Optional;
 
+
+public interface UserRoleRepository extends BaseJpaRepository<UserRole,Integer> {
+
+//Optional<User>findByUuid(String uuid);
+//boolean
 
 }
