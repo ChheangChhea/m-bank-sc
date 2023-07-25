@@ -39,12 +39,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto findById(Integer id) {
         User user = userRepository.findById(id).orElseThrow();
+        System.out.println(user.getUserRoles());
+//        log.info("User: {}",user.getUserRoles().get(0).getRole().getName());
+        log.info("User: {}", user.getUserRoles());
         return userMapper.userToUserDto(user);
 
     }
 
     @Override
-    public UserDto createNew(CreateUserDto createUserDto) {
+    public Integer createNew(CreateUserDto createUserDto) {
 
         User newUser = userMapper.createUserDtoToUser(createUserDto);
         newUser.setUuid(UUID.randomUUID().toString());
@@ -52,23 +55,34 @@ public class UserServiceImpl implements UserService {
         newUser.setIsDelete(false);
         newUser.setIsVerified(true);
 
-        userRepository.save(newUser);
+        User savedUser = userRepository.saveAndFlush(newUser);
 
+        createUserRoles(savedUser.getId(),createUserDto.roleIds());
+
+
+
+//        System.out.println(userRoles.get(0).getRole().getName());
+//        newUser =userRepository.
+        /*System.out.println(newUser.getId());
+       User insertedUser =userRepository.findById(newUser.getId()).orElseThrow();
+        System.out.println(insertedUser.getUserRoles());*/
+//        return findById(newUser.getId());
+//        return findById(savedUser.getId());
+
+        return newUser.getId();
+    }
+
+    @Override
+    public void createUserRoles(Integer userId,List <Integer> roleIds) {
 
         List<UserRole> userRoles = new ArrayList<>();
 
-        createUserDto.roleIds().forEach(id ->
+        roleIds.forEach(id ->
                 userRoles.add(UserRole.builder()
-                        .user(newUser)
+                        .user(User.builder().id(userId).build())
                         .role(Role.builder().id(id).build())
                         .build()));
         userRoleRepository.saveAll(userRoles);
 
-        System.out.println(newUser.getId());
-//        newUser =userRepository.
-        System.out.println();
-        return findById(newUser.getId());
     }
-
-
 }

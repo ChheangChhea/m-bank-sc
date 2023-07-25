@@ -8,7 +8,9 @@ import java.util.List;
 public interface UserService {
     Iterable<UserDto> findAll();
 
-    UserDto createNew(CreateUserDto createUserDto);
+    Integer createNew(CreateUserDto createUserDto);
+
+    void createUserRoles(Integer userId,List<Integer> roleIds);
 
         UserDto findById(Integer id);
 

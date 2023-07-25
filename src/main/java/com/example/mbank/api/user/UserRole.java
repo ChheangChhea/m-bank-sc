@@ -28,12 +28,8 @@ public class UserRole {
     private User user;
 
     @ManyToOne
-    @JsonBackReference
+//    @JsonBackReference
     private Role role;
-
-
-
-
 
     @CreationTimestamp
     private LocalDateTime creatAt;
