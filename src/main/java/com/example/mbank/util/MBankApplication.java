@@ -1,11 +1,11 @@
-package com.example.mbank;
+package com.example.mbank.util;
 
-import com.example.mbank.base.BaseJpaRepositoryImp;
+import com.example.mbank.base.BaseJpaRepositoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories(repositoryBaseClass = BaseJpaRepositoryImp.class)
+@EnableJpaRepositories(repositoryBaseClass = BaseJpaRepositoryImpl.class)
 @SpringBootApplication
 public class MBankApplication  {
 

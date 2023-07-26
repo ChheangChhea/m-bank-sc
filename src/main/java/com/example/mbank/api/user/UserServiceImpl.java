@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
 
-    private final EntityManager entityManager;
+//    private final EntityManager entityManager;
 
 
 
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
 
          userRepository.refresh(newUser);
 
-         entityManager.refresh(newUser);
+         userRepository.refresh(newUser);
 
 //        return userMapper.userToUserDto(newUser);
 
@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService {
                     .build();
             userRoleRepository.save(userRole);
             userRoleRepository.refresh(userRole);
-            entityManager.refresh(userRole);
+
         });
 
     }
