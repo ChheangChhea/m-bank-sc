@@ -89,10 +89,10 @@ public class DataInitialization {
                 .email("Chhea00@123")
                 .gender("Male")
                 .phoneNumber("0978216852")
-                .isVerifyCode(true)
-                .isDelete(false)
+
+                .isVerified(true)
+                .isDeleted(false)
                 .isStudent(false)
-//                .userRoles(List.of(userRoleAdmin))
                 .build();
         userRepository.save(user);
 
@@ -101,8 +101,14 @@ public class DataInitialization {
                 .role(roleAdmin)
                 .build();
 
+        UserRole userRoleManage = UserRole.builder()
+                .user(user)
+                .role(roleManager)
+                .build();
+
         userRoleRepository.save(userRoleAdmin);
 
+        userRoleRepository.save(userRoleManage);
         System.out.println(userRepository.findById(1).get().getUserRoles().get(0).getRole().getName());
 
 

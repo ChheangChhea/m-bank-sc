@@ -1,5 +1,6 @@
 package com.example.mbank.api.user.web;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 
 import java.util.List;
@@ -10,11 +11,9 @@ public record UserDto(String uuid,
                       String gender,
                       String email,
                       String phoneNumber,
-                      Boolean isStudent,
+//                      Boolean isStudent,
+                      @JsonInclude(value = JsonInclude.Include.NON_NULL)
                       String studentCadeNo,
-                      List <UserRoleDto> userRoles
-
-) {
-
+                      List <UserRoleDto> userRoles) {
 
 }

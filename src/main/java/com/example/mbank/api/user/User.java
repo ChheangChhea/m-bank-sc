@@ -1,5 +1,7 @@
 package com.example.mbank.api.user;
 
+import com.example.mbank.api.account.Account;
+import com.example.mbank.api.account.UserAccount;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,14 +28,16 @@ public class User {
     private String onSignalId;
     private Boolean isStudent;
     private String studentCardNo;
-    private String verifyCode;
-    private  Boolean isVerifyCode;
-    private  Boolean isVerified;
-    private  Boolean isDelete;
+    private String verifiedCode;
+    private Boolean isVerified;
+    private Boolean isDeleted;
 
 
-    @OneToMany(mappedBy ="user",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 
-   private List<UserRole> userRoles;
+    private List<UserRole> userRoles;
 
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<UserAccount> userAccounts;
 }
