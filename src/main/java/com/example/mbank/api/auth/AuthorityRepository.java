@@ -1,7 +1,7 @@
 package com.example.mbank.api.auth;
 
-import org.springframework.data.repository.CrudRepository;
+import com.example.mbank.base.BaseJpaRepository;
 
-public interface AuthorityRepository  extends CrudRepository<Authority,Integer> {
+public interface AuthorityRepository  extends BaseJpaRepository<Authority,Integer> {
 
 }

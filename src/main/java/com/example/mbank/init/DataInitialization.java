@@ -10,6 +10,7 @@ import com.example.mbank.api.user.UserRole;
 import com.example.mbank.api.user.UserRoleRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class DataInitialization {
     private final AuthorityRepository authorityRepository;
     private final RoleRepository roleRepository;
     private final UserRoleRepository userRoleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void init() {
@@ -87,11 +89,11 @@ public class DataInitialization {
                 .uuid(UUID.randomUUID().toString())
                 .name("Administrator")
                 .email("Chhea00@123")
+                .password(passwordEncoder.encode("123"))
                 .gender("Male")
                 .phoneNumber("0978216852")
-
-                .isVerified(true)
                 .isDeleted(false)
+                .isVerified(true)
                 .isStudent(false)
                 .build();
         userRepository.save(user);
@@ -109,7 +111,7 @@ public class DataInitialization {
         userRoleRepository.save(userRoleAdmin);
 
         userRoleRepository.save(userRoleManage);
-        System.out.println(userRepository.findById(1).get().getUserRoles().get(0).getRole().getName());
+        System.out.println(userRepository.findById(user.getId()).get().getUserRoles().get(0).getRole().getName());
 
 
     }

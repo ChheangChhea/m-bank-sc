@@ -34,7 +34,6 @@ public class User {
 
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-
     private List<UserRole> userRoles;
 
 

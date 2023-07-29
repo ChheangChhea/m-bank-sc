@@ -1,5 +1,6 @@
 package com.example.mbank.api.auth;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,10 +19,8 @@ public class Authority {
     private Integer id;
     private String name;
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    private List<Authority> authorities;
-
     @ManyToMany(mappedBy ="authorities")
+    @JsonBackReference
     private List<Role>roles;
 
 }
