@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" activateToolWindowBeforeRun="false">
+    <option name="ACTIVE_PROFILES" value="dev" />
+    <option name="INCLUDE_PROVIDED_SCOPE" value="false" />
+    <module name="m-bank.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="co.istad.mbank.MBankApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
