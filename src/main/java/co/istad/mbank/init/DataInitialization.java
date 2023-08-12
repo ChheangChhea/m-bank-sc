@@ -96,7 +96,20 @@ public class DataInitialization {
                 .isVerified(true)
                 .isStudent(false)
                 .build();
+
+        User customer = User.builder()
+                .uuid(UUID.randomUUID().toString())
+                .name("Customer")
+                .email("Chhea01@123")
+                .password(passwordEncoder.encode("1234"))
+                .gender("Male")
+                .phoneNumber("0978216852")
+                .isDeleted(false)
+                .isVerified(true)
+                .isStudent(false)
+                .build();
         userRepository.save(user);
+        userRepository.save(customer);
 
         UserRole userRoleAdmin = UserRole.builder()
                 .user(user)
@@ -107,10 +120,15 @@ public class DataInitialization {
                 .user(user)
                 .role(roleManager)
                 .build();
+        UserRole userRoleCustomer= UserRole.builder()
+                .user(user)
+                .role(roleCustomer)
+                .build();
+
 
         userRoleRepository.save(userRoleAdmin);
-
         userRoleRepository.save(userRoleManage);
+        userRoleRepository.save(userRoleCustomer);
         System.out.println(userRepository.findById(user.getId()).get().getUserRoles().get(0).getRole().getName());
 
 

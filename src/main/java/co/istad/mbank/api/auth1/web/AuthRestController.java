@@ -28,5 +28,15 @@ public class AuthRestController {
                 .payload(authDto)
                 .build();
     }
-
+    @PostMapping("/refresh")
+    public BaseApi<?>refresh(@Valid @RequestBody RefreshTokenDto refreshTokenDto){
+        AuthDto authDto =authService.refresh(refreshTokenDto);
+        return BaseApi.builder()
+                .isSuccess(true)
+                .code(HttpStatus.OK.value())
+                .massage(" Access Token has been has been successfully")
+                .dateTime(LocalDateTime.now())
+                .payload(authDto)
+                .build();
+    }
 }

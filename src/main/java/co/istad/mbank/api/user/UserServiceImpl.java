@@ -30,9 +30,6 @@ public class UserServiceImpl implements UserService {
     public Iterable<UserDto> findAll() {
 
         Iterable<User> users = userRepository.findAll();
-        log.info("Usersrrrrrrrrrrrrrrrr"+users);
-        users.forEach(user -> log.info("user:{}"
-                , user.getUserRoles().get(0).getRole().getName()));
 
         return userMapper.userToUserDto(users);
 
