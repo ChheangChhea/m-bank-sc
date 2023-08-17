@@ -10,17 +10,8 @@ import java.util.Optional;
 
 public interface AccountRepository extends BaseJpaRepository<Account,Integer> {
 
-//        Optional<Account> findByActNameAndIsDeletedFalse(Integer id);
+
+//    Optional<Account> findByUuid(String uuid);
 //
-//    Optional<Account> findById(Integer id);
-
-   /* boolean existsById(Integer id);
-
-    void deleteById(Integer id);
-
-    @Modifying
-    @Query("UPDATE Account set actName=?1 where id =?2")
-    void updateIsDeletedById(Integer id);
-*/
 }
 

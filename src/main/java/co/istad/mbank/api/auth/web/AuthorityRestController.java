@@ -27,7 +27,7 @@ public class AuthorityRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" Users  have been found")
+                .message(" Users  have been found")
                 .dateTime(LocalDateTime.now())
                 .payload(roles)
                 .build();

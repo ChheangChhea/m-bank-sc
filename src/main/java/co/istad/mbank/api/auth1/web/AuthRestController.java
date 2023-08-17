@@ -23,7 +23,7 @@ public class AuthRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" You login  has been successfully")
+                .message(" You login  has been successfully")
                 .dateTime(LocalDateTime.now())
                 .payload(authDto)
                 .build();
@@ -34,7 +34,7 @@ public class AuthRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" Access Token has been has been successfully")
+                .message(" Access Token has been has been successfully")
                 .dateTime(LocalDateTime.now())
                 .payload(authDto)
                 .build();

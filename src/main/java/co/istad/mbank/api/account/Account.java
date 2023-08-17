@@ -4,6 +4,7 @@ import co.istad.mbank.api.accounttype.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -19,15 +20,20 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
+    private String uuid;
 
     private String actNo;
     private String actName;
-    private Double transferLimit;
+    private BigDecimal transferLimit;
     private String pin;
+
 
     @ManyToOne
     private AccountType accountType;
 
-    @OneToMany(mappedBy = "accounts")
+    @OneToMany
     private List<UserAccount> userAccounts;
+
+
 }

@@ -2,27 +2,21 @@ package co.istad.mbank.api.account;
 
 import co.istad.mbank.api.account.web.AccountDto;
 import co.istad.mbank.api.account.web.CreateAccountDto;
-import co.istad.mbank.api.account.web.UpdateAccountDto;
-import org.mapstruct.BeanMapping;
+import co.istad.mbank.api.accounttype.AccountTypeMapper;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.Mapping;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface AccountMapper {
 
-       Account createAccountToAccountDto(CreateAccountDto createAccountDto);
+       Account createNew(CreateAccountDto createAccountDto);
 
-       AccountDto AccountToaccountDto(Account account);
+      /* @Mapping(source = "account.accountType.name", target = "actType")
+       AccountDto toAccountDto(Account account);
 
+       List<AccountDto> toAccountDtoList(List<Account> accounts);*/
 
-       Account createAccountDtoToAccount(CreateAccountDto createAccountDto);
-
-
-       @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-       void updateAccountDtoToAccount(UpdateAccountDto updateAccountDto, @MappingTarget Account account);
-
-       AccountDto accountToAccountDto(Account account);
-
-       AccountDto createAccountDtoToAccount(Account account);
+//       Account fromCreateAccountDto(CreateAccountDto createAccountDto);
 }

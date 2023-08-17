@@ -129,7 +129,6 @@ public class DataInitialization {
         userRoleRepository.save(userRoleAdmin);
         userRoleRepository.save(userRoleManage);
         userRoleRepository.save(userRoleCustomer);
-        System.out.println(userRepository.findById(user.getId()).get().getUserRoles().get(0).getRole().getName());
 
 
     }

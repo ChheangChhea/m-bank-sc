@@ -26,7 +26,7 @@ public class UserRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" Users  have been found")
+                .message(" Users  have been found")
                 .dateTime(LocalDateTime.now())
                 .payload(usersDto)
                 .build();
@@ -40,7 +40,7 @@ public class UserRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" User  has been found")
+                .message(" User  has been found")
                 .dateTime(LocalDateTime.now())
                 .payload(userDto)
                 .build();
@@ -53,7 +53,7 @@ public class UserRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" User  has been created")
+                .message(" User  has been created")
                 .dateTime(LocalDateTime.now())
                 .payload(newUser)
                 .build();
@@ -78,7 +78,7 @@ public class UserRestController {
         return BaseApi.builder()
                 .isSuccess(true)
                 .code(HttpStatus.OK.value())
-                .massage(" User  has been found")
+                .message(" User  has been found")
                 .dateTime(LocalDateTime.now())
                 .payload(updatedUser)
                 .build();
