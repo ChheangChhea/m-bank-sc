@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface AccountRepository extends BaseJpaRepository<Account,Integer> {
 
 
-//    Optional<Account> findByUuid(String uuid);
-//
+    Optional<Account> findByUuid(String uuid);
+
 }
 

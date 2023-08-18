@@ -11,13 +11,11 @@ public interface AccountService {
 
 
 
-  void createNew(CreateAccountDto createAccountDto);
+  Account createNew(CreateAccountDto createAccountDto);
 
-//    List<AccountDto> findAll();
+    List<AccountDto> findAll();
 
-//    AccountDto findByUuid(String uuid);
-
-
+    AccountDto findByUuid(String uuid);
 
 
 }

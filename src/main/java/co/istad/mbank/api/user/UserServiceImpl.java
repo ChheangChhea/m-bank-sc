@@ -1,9 +1,9 @@
 package co.istad.mbank.api.user;
 
+import co.istad.mbank.api.auth.Role;
 import co.istad.mbank.api.user.web.CreateUserDto;
 import co.istad.mbank.api.user.web.UpdateUserDto;
 import co.istad.mbank.api.user.web.UserDto;
-import co.istad.mbank.api.auth.Role;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -13,10 +13,10 @@ public interface AccountMapper {
 
        Account createNew(CreateAccountDto createAccountDto);
 
-      /* @Mapping(source = "account.accountType.name", target = "actType")
-       AccountDto toAccountDto(Account account);
+       List<AccountDto> toAccountDtoList(List<Account> accounts);
 
-       List<AccountDto> toAccountDtoList(List<Account> accounts);*/
+       @Mapping(source = "account.accountType.name", target = "actType")
+       AccountDto toAccountDto(Account account);
 
 //       Account fromCreateAccountDto(CreateAccountDto createAccountDto);
 }

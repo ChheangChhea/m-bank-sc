@@ -27,16 +27,16 @@ public class AccountServiceImpl implements AccountService {
 
 
 
-   /* @Override
+    @Override
     public List<AccountDto> findAll() {
 
         List<Account> accounts = accountRepository.findAll();
 
         return accountMapper.toAccountDtoList(accounts);
-    }*/
+    }
 
     @Override
-    public void createNew(CreateAccountDto createAccountDto) {
+    public Account createNew(CreateAccountDto createAccountDto) {
 
 //        Account account = accountMapper.fromCreateAccountDto(createAccountDto);
 
@@ -57,10 +57,11 @@ public class AccountServiceImpl implements AccountService {
                 .updatedAt(LocalDateTime.now())
                 .build();
 
-        userAccountRepository.save(userAccount);
+         userAccountRepository.save(userAccount);
+         return userAccount.getAccount() ;
     }
 
- /*   @Override
+    @Override
     public AccountDto findByUuid(String uuid) {
 
         Account account = accountRepository.findByUuid(uuid)
@@ -71,6 +72,8 @@ public class AccountServiceImpl implements AccountService {
                 );
 
         return accountMapper.toAccountDto(account);
-    }*/
+    }
+
+
 
 }

@@ -14,10 +14,10 @@ public record BaseApi<T>(Boolean isSuccess,
                          T payload
                          ) {
 
-//    public static <T> BaseApiBuilder<T> ok() {
-//        return BaseApi.<T>builder()
-//                .isSuccess(true)
-//                .code(HttpStatus.OK.value());
-//              //  .timestamp(LocalDateTime.now());
-//    }
+    public static <T> BaseApiBuilder<T> ok() {
+        return BaseApi.<T>builder()
+                .isSuccess(true)
+                .code(HttpStatus.OK.value());
+//                .timestamp(LocalDateTime.now());
+    }
 }

@@ -23,27 +23,27 @@ public class AccountRestController {
         accountService.createNew(createAccountDto);
     }
 
- /*   @GetMapping
+    @GetMapping
     public BaseApi<?> findAll() {
 
         List<AccountDto> accountDtoList = accountService.findAll();
 
         return BaseApi.ok()
-                .massage("Accounts have been found")
+                .message("Accounts have been found")
                 .payload(accountDtoList)
                 .build();
-    }*/
+    }
 
- /*   @GetMapping("/{uuid}")
+    @GetMapping("/{uuid}")
     public BaseApi<?> findByUuid(@PathVariable String uuid) {
 
         AccountDto accountDto = accountService.findByUuid(uuid);
 
         return BaseApi.ok()
-                .massage("Account has been found")
+                .message("Account has been found")
                 .payload(accountDto)
                 .build();
-    }*/
+    }
 
 
 }
