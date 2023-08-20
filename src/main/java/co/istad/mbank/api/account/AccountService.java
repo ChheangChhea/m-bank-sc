@@ -17,5 +17,4 @@ public interface AccountService {
 
     AccountDto findByUuid(String uuid);
 
-
 }

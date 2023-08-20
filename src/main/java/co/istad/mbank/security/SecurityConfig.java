@@ -65,13 +65,13 @@ public class SecurityConfig {
 
 
         http.authorizeHttpRequests(auth -> {
-           /* auth.requestMatchers("/api/v1/auth/**").permitAll();
+            auth.requestMatchers("/api/v1/auth/**").permitAll();
             auth.requestMatchers(HttpMethod.GET,"/api/v1/auth/**").hasAuthority("SCOPE_user:read");
             auth.requestMatchers(HttpMethod.POST,"/api/v1/auth/**").hasAuthority("SCOPE_user:write");
             auth.requestMatchers(HttpMethod.PUT,"/api/v1/auth/**").hasAuthority("SCOPE_user:update");
             auth.requestMatchers(HttpMethod.DELETE,"/api/v1/auth/**").hasAuthority("SCOPE_user:delete");
-          */  auth.anyRequest()//.authenticated();
-            .permitAll();
+            auth.anyRequest().authenticated();
+           /* .permitAll();*/
         });
 
         //Security Mechanism

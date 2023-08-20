@@ -1,5 +1,7 @@
 package co.istad.mbank.init;
 
+import co.istad.mbank.api.accounttype.AccountType;
+import co.istad.mbank.api.accounttype.AccountTypeRepository;
 import co.istad.mbank.api.auth.Authority;
 import co.istad.mbank.api.auth.AuthorityRepository;
 import co.istad.mbank.api.auth.RoleRepository;
@@ -22,6 +24,7 @@ import java.util.UUID;
 public class DataInitialization {
 
 
+    private final AccountTypeRepository accountTypeRepository;
     private final UserRepository userRepository;
     private final AuthorityRepository authorityRepository;
     private final RoleRepository roleRepository;
@@ -131,5 +134,23 @@ public class DataInitialization {
         userRoleRepository.save(userRoleCustomer);
 
 
+        AccountType payroll = AccountType.builder()
+                .name("Payroll")
+                .build();
+
+        AccountType saving = AccountType.builder()
+                .name("Saving")
+                .build();
+
+        AccountType credit = AccountType.builder()
+                .name("Credit Card")
+                .build();
+
+        accountTypeRepository.save(payroll);
+        accountTypeRepository.save(saving);
+        accountTypeRepository.save(credit);
+
     }
+
 }
+
